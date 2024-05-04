@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scale=no">
+    <title>Larry</title>
+    <link rel="icon" href="2.jpeg">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 500px;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* border: 2px solid black; */
+        }
+        
+        .body {
+            width: 150px;
+            height: 400px;
+            position: absolute;
+            border: 1px solid skyblue;
+            background-color: skyblue;
+            border-radius: 200px 2px 200px 2px;
+            z-index: 10;
+        }
+        
+        .body::before {
+            position: absolute;
+            content: "";
+            width: 120px;
+            height: 50px;
+            border-radius: 0px 200px 0px 0px;
+            border: 2px solid orange;
+            top: 30px;
+            right: -104px;
+            z-index: -1;
+            background-color: orange;
+            animation: choch 1s ease-in infinite;
+            transform-origin: left top;
+        }
+        
+        @keyframes choch {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(-7deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        .body::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            top: 84px;
+            right: -54px;
+            width: 70px;
+            height: 50px;
+            border-radius: 0px 0px 200px 0px;
+            border: 2px solid orange;
+            background-color: orange;
+            animation: choch_bottom 1s ease-in infinite;
+            transform-origin: left top;
+        }
+        
+        @keyframes choch_bottom {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        .eye {
+            position: absolute;
+            top: 30px;
+            right: 0px;
+            width: 70px;
+            height: 120px;
+            border-radius: 200px 0px 0px 200px;
+            background-color: white;
+            border: 2px solid white;
+        }
+        
+        .eye::after,
+        .eye::before {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            border: 2px solid black;
+            z-index: 10;
+        }
+        
+        .eye::after {
+            top: 4px;
+            background-color: white;
+            border: 2px solid white;
+            animation: eye .8s ease-in;
+        }
+        
+        @keyframes eye {
+            0% {
+                top: 4px;
+            }
+            100% {
+                top: 30px;
+            }
+        }
+        
+        .pank {
+            width: 150px;
+            height: 280px;
+            position: absolute;
+            border: 1px solid slateblue;
+            background-color: slateblue;
+            border-radius: 2px 100px 200px 1px;
+            transform-origin: left top;
+            transform: rotate(20deg) translate(23px, 20px);
+            animation: pankh 1s ease-in infinite;
+        }
+        
+        @keyframes pankh {
+            0% {
+                transform: rotate(20deg) translate(23px, 20px);
+            }
+            50% {
+                transform: rotate(23deg) translate(23px, 20px);
+            }
+            100% {
+                transform: rotate(20deg) translate(23px, 20px);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="body">
+            <div class="eye"></div>
+            <div class="top"></div>
+        </div>
+        <div class="pank"></div>
+    </div>
+</body>
+
+</html>
